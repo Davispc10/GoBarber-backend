@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
+    "start": "nodemon src/server.js",
     "queue": "nodemon src/queue.js",
     "pretest": "NODE_ENV=test sequelize db:migrate",
     "test": "NODE_ENV=test jest",
@@ -27,6 +28,7 @@
     "faker": "^4.1.0",
     "flat-cache": "^2.0.1",
     "helmet": "^3.21.1",
+    "history": "^4.10.1",
     "ioredis": "^4.14.1",
     "jsonwebtoken": "^8.5.1",
     "memory-cache": "^0.2.0",
@@ -37,6 +39,7 @@
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
     "rate-limit-redis": "^1.6.0",
+    "react-router-dom": "^5.1.2",
     "redis": "^2.8.0",
     "sequelize": "^5.19.0",
     "youch": "^2.0.10",

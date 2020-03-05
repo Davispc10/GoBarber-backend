@@ -12,11 +12,11 @@ class AppointmentController {
     const { page = 1 } = req.query;
 
     const cacheKey = `user:${req.userId}:appointments:${page}`;
-    const cached = await Cache.get(cacheKey);
+    // const cached = await Cache.get(cacheKey);
 
-    if (cached) {
-      return res.json(cached);
-    }
+    // if (cached) {
+    //   return res.json(cached);
+    // }
 
     const appointments = await Appointment.findAll({
       where: {
@@ -43,7 +43,7 @@ class AppointmentController {
       ],
     });
 
-    await Cache.set(cacheKey, appointments);
+    // await Cache.set(cacheKey, appointments);
 
     return res.json(appointments);
   }
