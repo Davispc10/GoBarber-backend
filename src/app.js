@@ -16,15 +16,17 @@ import routes from './routes';
 import sentryConfig from './config/sentry';
 
 import './database';
+import swaggerDoc from '../src/config/swaggerDoc';
 
 class App {
   constructor() {
     this.server = express();
 
     Sentry.init(sentryConfig);
+    swaggerDoc(this.server);
 
-    this.middlewares();
     this.routes();
+    this.middlewares();
     this.exceptionHandler();
   }
 

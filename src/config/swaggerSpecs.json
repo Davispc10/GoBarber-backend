@@ -1,0 +1,185 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "GoBarber API",
+    "description": "Api para comunicação de provedores e clientes que usam a aplicação web e mobile do gobarber",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": ["http://localhost:3334"],
+  "apis": ["routes.js"],
+  "tags": [
+    {
+      "name": "GoBarber",
+      "description": "API para barbeiros"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Cria um novo usuário/provedor no sistema.",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Usuário que queremos criar",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Novo usuário criado!",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuários"
+        ],
+        "summary": "Atualizar dados do usuário do sistema.",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Dados do usuário que queremos atualizar",
+            "schema": {
+              "$ref": "#/definitions/UserUpdate"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserUpdate"
+            }
+          }
+        }
+      }
+    },
+    "/sessions": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "Criar uma sessão de usuário no sistema.",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "body",
+            "description": "Dados para login",
+            "schema": {
+              "$ref": "#/definitions/Session"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SessionResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "required": [
+        "name",
+        "email",
+        "password",
+        "provider"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "uniqueItems": false
+        },
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "password": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UserUpdate": {
+      "required": [
+        "name",
+        "email"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "uniqueItems": false
+        },
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "password": {
+          "type": "string"
+        },
+        "confirmPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "Session": {
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "SessionResponse": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
