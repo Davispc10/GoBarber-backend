@@ -49,7 +49,8 @@
     "swagger-node-express": "^2.1.3",
     "swagger-ui-express": "^4.1.3",
     "youch": "^2.0.10",
-    "yup": "^0.27.0"
+    "yup": "^0.27.0",
+    "sucrase": "^3.12.1"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
@@ -68,7 +69,6 @@
     "prettier": "^1.18.2",
     "sequelize-cli": "^5.5.1",
     "sqlite3": "^4.1.0",
-    "sucrase": "^3.12.1",
     "supertest": "^4.0.2"
   }
 }
