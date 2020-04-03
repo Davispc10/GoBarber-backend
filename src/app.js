@@ -35,7 +35,7 @@ class App {
     this.server.use(helmet());
     this.server.use(
       cors({
-        origin: '*', // caminho do front end que poderão acessar o servidor.
+        origin: 'https://vigorous-elion-c24ee3.netlify.com', // caminho do front end que poderão acessar o servidor.
       })
     );
     this.server.use(express.json());
