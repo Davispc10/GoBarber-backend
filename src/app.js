@@ -34,30 +34,21 @@ class App {
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(helmet());
 
-    this.server.use(function(req, res, next) {
-      res.header('Access-Control-Allow-Origin', '*');
-      res.header(
-        'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept'
-      );
-      next();
-    });
-
-    this.server.options(
-      '*',
-      cors({
-        origin: '*',
-        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-        preflightContinue: false,
-        optionsSuccessStatus: 204,
-      })
-    );
-
-    // this.server.use(
+    // this.server.options(
+    //   '*',
     //   cors({
-    //     origin: '*', // 'https://vigorous-elion-c24ee3.netlify.com', // caminho do front end que poderão acessar o servidor.
+    //     origin: '*',
+    //     // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    //     // preflightContinue: false,
+    //     // optionsSuccessStatus: 204,
     //   })
     // );
+
+    this.server.use(
+      cors({
+        origin: 'https://vigorous-elion-c24ee3.netlify.com', // caminho do front end que poderão acessar o servidor.
+      })
+    );
 
     this.server.use(express.json());
     this.server.use(
