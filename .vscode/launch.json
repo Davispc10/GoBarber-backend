@@ -6,11 +6,11 @@
   "configurations": [
     {
       "type": "node",
-      "name": "Launch",
-      "request": "launch",
-      "args": [
-        "--runInBand"
-      ],
+      "request": "attach",
+      "protocol": "inspector",
+      "restart": true,
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"]
     },
   ]
 }
