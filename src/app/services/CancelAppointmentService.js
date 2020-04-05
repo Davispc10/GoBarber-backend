@@ -3,11 +3,11 @@ import { isBefore, subHours } from 'date-fns';
 import User from '../models/User';
 import Appointment from '../models/Appointment';
 
-import Queue from '../../lib/Queue';
+// import Queue from '../../lib/Queue';
 
 import CancellationMail from '../jobs/CancellationMail.js';
 
-import Cache from '../../lib/Cache';
+// import Cache from '../../lib/Cache';
 
 class CancelAppointmentService {
   async run({ provider_id, user_id }) {

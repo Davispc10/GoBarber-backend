@@ -5,7 +5,7 @@ import Appointment from '../models/Appointment';
 import CreateAppointmentService from '../services/CreateAppointmentService';
 import CancelAppointmentService from '../services/CancelAppointmentService';
 
-import Cache from '../../lib/Cache';
+// import Cache from '../../lib/Cache';
 
 class AppointmentController {
   async index(req, res) {
