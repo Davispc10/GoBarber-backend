@@ -34,16 +34,6 @@ class App {
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(helmet());
 
-    // this.server.options(
-    //   '*',
-    //   cors({
-    //     origin: '*',
-    //     // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    //     // preflightContinue: false,
-    //     // optionsSuccessStatus: 204,
-    //   })
-    // );
-
     this.server.use(
       cors({
         origin: 'https://vigorous-elion-c24ee3.netlify.com', // caminho do front end que poderão acessar o servidor.
