@@ -44,16 +44,23 @@ class App {
     //   next();
     // });
 
-    this.server.use(
-      cors({
-        origin: '*', // 'https://vigorous-elion-c24ee3.netlify.com', // caminho do front end que poderão acessar o servidor.
-      })
-    );
+    // this.server.use(
+    //   cors({
+    //     origin: '*', // 'https://vigorous-elion-c24ee3.netlify.com', // caminho do front end que poderão acessar o servidor.
+    //   })
+    // );
 
-    this.server.use(function(req, res, next) {
-      res.header('Access-Control-Allow-Origin', '*');
-      res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-      res.header('Access-Control-Allow-Headers', 'content-type');
+    this.server.use((req, res, next) => {
+      res.header('Acces-Control-Allow-Origin', '*');
+      res.header(
+        'Acces-Control-Allow-Header',
+        'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+      );
+
+      if (req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+        return res.status(200).send({});
+      }
       next();
     });
 
