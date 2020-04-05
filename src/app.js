@@ -33,16 +33,6 @@ class App {
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
     this.server.use(helmet());
-    // this.server.use(bodyParser.urlencoded({ extended: true }));
-    // this.server.use(bodyParser.json());
-    // this.server.use(function(req, res, next) {
-    //   res.header('Access-Control-Allow-Origin', '*');
-    //   res.header(
-    //     'Access-Control-Allow-Headers',
-    //     'Origin, X-Requested-With, Content-Type, Accept'
-    //   );
-    //   next();
-    // });
 
     this.server.use(function(req, res, next) {
       res.header('Access-Control-Allow-Origin', '*');
