@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import Brute from 'express-brute';
 import BruteRedis from 'express-brute-redis';
+import configRedis from './config/redis';
 
 import multer from 'multer';
 import multerConfig from './config/multer';

@@ -3,8 +3,7 @@ import redisConfig from '../config/redis';
 
 class Cache {
   contructor() {
-    this.redis = new Redis({
-      redisConfig,
+    this.redis = new Redis(process.env.REDIS_URL, {
       keyPrefix: 'cache:',
     });
   }
